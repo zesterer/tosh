@@ -1,0 +1,2 @@
+# Supported target systems are "posix" and "thoth"
+CONFIG_TARGET_SYSTEM=posix

@@ -1,0 +1,4 @@
+project_name=tosh
+
+: src/*.c	|> gcc -c -o %B.o %f			|> %B.o
+: *.o		|> gcc -o $(project_name) %f	|> $(project_name)

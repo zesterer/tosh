@@ -1,0 +1,2 @@
+!cc_obj =	|> gcc $(CFLAGS) -c %f $(INCLUDES) -o %B.o |> %B.o
+!cc_exec =	|> gcc -o %o %f $(LIBS) |> %o
