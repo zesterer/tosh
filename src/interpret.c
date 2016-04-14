@@ -70,8 +70,7 @@ int toshEval(const char* expr, char* out, int len)
 				{
 					if (!found_bracket)
 					{
-						printf("%s", expr);
-						printf("Error: unexpected character '%c' at position %i\n", cchar, cpos + 1);
+						printf("Error: Unexpected character '%c' at position %i\n", cchar, cpos + 1);
 						return 1;
 					}
 					else
@@ -107,6 +106,12 @@ int toshEval(const char* expr, char* out, int len)
 		lchar = cchar;
 
 		cpos ++;
+	}
+
+	if (found_bracket)
+	{
+		printf("Error: Expected %i closing bracket(s) to match expansion '%c' started at position %i\n", bracket_level, expr[lpos], lpos + 1);
+		return 1;
 	}
 
 	out[opos] = '\0';
