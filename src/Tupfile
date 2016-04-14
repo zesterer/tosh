@@ -1,5 +1,5 @@
 include_rules
 
-INCLUDES="../include"
+INCLUDES=-I../include
 
 : foreach *.c |> !cc_obj |>

@@ -9,7 +9,7 @@ TOSH (Thoth Official SHell) is a shell designed to operate on POSIX systems. It 
 # Double quotes are counted as a string
 echo "Hello, there!"
 
-# Grave quotes are evaluated as a command, unless prefixed by a '\'
-echo "My name is `whoami`, not \`whoami`"
+# Brackets are evaluated as a command, unless prefixed by a '\'
+echo "My name is {whoami}, not \{whoami\}"
 
 ```

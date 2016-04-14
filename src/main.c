@@ -5,6 +5,10 @@
 #include "errno.h"
 #include "unistd.h"
 
+// Local
+#include "interpret.h"
+#include "config.h"
+
 #define MAX_LINE_LENGTH 512
 
 enum
@@ -22,13 +26,13 @@ enum
 void interpret(const char* line)
 {
 	char tmp[MAX_LINE_LENGTH];
-	
+
 	bool do_parse = true;
 	unsigned int state = 0;
 	unsigned int last_pos = 0;
 	unsigned int pos = 0;
 	unsigned int command = CMD_NONE;
-	
+
 	while (do_parse)
 	{
 		switch(line[pos])
@@ -39,7 +43,7 @@ void interpret(const char* line)
 				if (state == PS_TOKEN)
 				{
 					memcpy(tmp, line + last_pos, pos - last_pos);
-					
+
 					if (tmp[pos - last_pos - 1] == '\n')
 						tmp[pos - last_pos - 1] = '\0';
 					else
@@ -53,7 +57,7 @@ void interpret(const char* line)
 					}
 					else if (last_pos == 0)
 						system(line);
-					
+
 					if (command != CMD_NONE)
 					{
 						switch (command)
@@ -68,11 +72,11 @@ void interpret(const char* line)
 					}
 				}
 				state = PS_WHITESPACE;
-				
+
 				if (line[pos] == '\0')
 					do_parse = false;
 				break;
-			
+
 			default:
 				if (state == PS_WHITESPACE)
 				{
@@ -81,7 +85,7 @@ void interpret(const char* line)
 				state = PS_TOKEN;
 				break;
 		}
-		
+
 		pos ++;
 	}
 }
@@ -89,21 +93,26 @@ void interpret(const char* line)
 int main(int argc, char* argv[])
 {
 	char line[MAX_LINE_LENGTH];
-	
-	printf("Welcome to Thoth Shell.\n");
-	
+
+	printf("Welcome to Thoth Shell\n");
+
+	//char tmp[MAX_LINE];
+	//toshEval("ls {echo /home/joshua}", tmp, MAX_LINE);
+
 	while (1)
 	{
 		char username[64];
 		char wd[MAX_LINE_LENGTH];
 		cuserid(username);
 		printf("\x1b[31m%s\x1b[0m@\x1b[32m%s\x1b[0m$ ", username, getcwd(wd, MAX_LINE_LENGTH));
-		
+
 		if (!fgets(line, MAX_LINE_LENGTH, stdin))
 			break;
-		
-		interpret(line);
+
+		char tmp[MAX_LINE];
+		toshEval(line, tmp, MAX_LINE);
+		printf("%s", tmp);
 	}
-	
+
 	return 0;
 }
