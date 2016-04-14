@@ -110,8 +110,9 @@ int main(int argc, char* argv[])
 			break;
 
 		char tmp[MAX_LINE];
-		toshEval(line, tmp, MAX_LINE);
-		printf("%s", tmp);
+		int result = toshEval(line, tmp, MAX_LINE);
+		if (result == 0)
+			printf("%s", tmp);
 	}
 
 	return 0;
