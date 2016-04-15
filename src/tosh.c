@@ -7,6 +7,7 @@
 // standard
 #include "stdlib.h"
 #include "stdio.h"
+#include "unistd.h"
 
 void tosh_init()
 {
@@ -22,12 +23,14 @@ void tosh_loop()
 
 	do
 	{
+		char cdir[512];
+		getcwd(cdir, sizeof(cdir));
 		printf("%s%s%s@%s%s%s$ ",
 				TOSH_ANSI_CODE_LIGHT_RED,
 				getenv("USERNAME"),
 				TOSH_ANSI_CODE_RESET,
 				TOSH_ANSI_CODE_LIGHT_GREEN,
-				getenv("PWD"),
+				cdir,
 				TOSH_ANSI_CODE_RESET);
 
 		line = tosh_read_line();

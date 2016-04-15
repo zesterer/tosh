@@ -1,6 +1,8 @@
-# TOSH
+# Tosh
 
-TOSH (Thoth Official SHell) is a shell designed to operate on POSIX systems. It is simple and lightweight, providing few features beyond the basic functionality you would expect from a shell.
+Tosh (Terribly Ordinary SHell) is a shell designed to operate on POSIX systems. It is simple and lightweight, providing few features beyond the basic functionality you would expect from a shell.
+
+![alt tag](https://raw.githubusercontent.com/zesterer/tosh/dev/misc/screen0.png "Tosh")
 
 ## Getting a copy
 
