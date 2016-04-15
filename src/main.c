@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 {
 	char line[MAX_LINE_LENGTH];
 
-	printf("Welcome to Tosh!\n");
+	printf("Welcome to TOSH!\n");
 
 	setenv("PROMPT_SCRIPT", "echo -n \"{tput setaf 1}{echo -n $USERNAME}\x1B[0m@{tput setaf 2}{echo -n $PWD}\x1B[0m$ \"", 1);
 
