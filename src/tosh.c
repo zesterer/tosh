@@ -2,6 +2,7 @@
 #include "tosh.h"
 #include "read.h"
 #include "exec.h"
+#include "color.h"
 
 // standard
 #include "stdlib.h"
@@ -9,7 +10,8 @@
 
 void tosh_init()
 {
-	// Init
+	printf("Welcome to tosh, the Terribly Ordinary Shell\n");
+	printf("Type %shelp%s for instructions\n", TOSH_ANSI_CODE_YELLOW, TOSH_ANSI_CODE_RESET);
 }
 
 void tosh_loop()
@@ -20,7 +22,13 @@ void tosh_loop()
 
 	do
 	{
-		printf("$ ");
+		printf("%s%s%s@%s%s%s$ ",
+				TOSH_ANSI_CODE_LIGHT_RED,
+				getenv("USERNAME"),
+				TOSH_ANSI_CODE_RESET,
+				TOSH_ANSI_CODE_LIGHT_GREEN,
+				getenv("PWD"),
+				TOSH_ANSI_CODE_RESET);
 
 		line = tosh_read_line();
 		args = tosh_split_line(line);

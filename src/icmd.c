@@ -1,6 +1,8 @@
 // local
 #include "icmd.h"
 #include "error.h"
+#include "exec.h"
+#include "color.h"
 
 // standard
 #include "stdlib.h"
@@ -43,16 +45,29 @@ int tosh_icmd_cd(char* args[])
 
 int tosh_icmd_help(char* args[])
 {
-	printf("TOSH - Terribly Ordinary SHell\n");
+	if (args[1] != NULL)
+	{
+		args[0] = "man";
+		return tosh_launch(args);
+	}
+
+	printf("%sTosh%s - %sThe Terribly Ordinary Shell%s\n",
+			TOSH_ANSI_CODE_LIGHT_BLUE,
+			TOSH_ANSI_CODE_RESET,
+			TOSH_ANSI_CODE_LIGHT_GREEN,
+			TOSH_ANSI_CODE_RESET);
 	printf("Run a command, followed by arguments separated by spaces\n");
-	printf("Built in commands:\n");
+	printf("Internal commands:\n");
 
 	for(int i = 0; i < tosh_num_internal_cmd(); i ++)
 	{
-		printf("--> %s\n", internal_cmd_str[i]);
+		printf("--> %s%s%s\n", TOSH_ANSI_CODE_YELLOW, internal_cmd_str[i], TOSH_ANSI_CODE_RESET);
 	}
 
-	printf("Type 'man tosh' for more information.\n");
+	printf("Type %shelp %s<manpage>%s for more information.\n",
+			TOSH_ANSI_CODE_YELLOW,
+			TOSH_ANSI_CODE_LIGHT_RED,
+			TOSH_ANSI_CODE_RESET);
 	return 1;
 }
 

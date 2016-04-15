@@ -7,6 +7,6 @@
 
 int tosh_error(const char* msg)
 {
-	fprintf(stderr, "%stosh: %s%s\n", TOSH_ANSI_CODE_RED, msg, TOSH_ANSI_CODE_RESET);
+	fprintf(stderr, "%stosh: %s%s\n", TOSH_ANSI_CODE_LIGHT_RED, msg, TOSH_ANSI_CODE_RESET);
 	return 0;
 }
