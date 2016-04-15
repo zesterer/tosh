@@ -22,6 +22,20 @@ tup build-default
 ./build-default/tosh
 ```
 
+## Example
+
+```
+Welcome to TOSH!
+10:52:41
+joshua@/home/joshua/Documents/Projects/tosh$ echo "TOSH supports basic expression expansion!"
+TOSH supports basic expression expansion!
+10:52:56
+joshua@/home/joshua/Documents/Projects/tosh$ echo "{tput setaf 6}Here's how!"
+Here's how!
+10:53:17
+joshua@/home/joshua/Documents/Projects/tosh$
+```
+
 ## Syntax
 
 ```

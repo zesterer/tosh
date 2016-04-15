@@ -1,0 +1,24 @@
+#ifndef TOSH_COLOR
+#define TOSH_COLOR
+
+#define TOSH_ANSI_CODE_RESET		"\x1B[0m"
+
+#define TOSH_ANSI_CODE_BLACK		"\x1B[0;30m"
+#define TOSH_ANSI_CODE_BLUE			"\x1B[0;34m"
+#define TOSH_ANSI_CODE_GREEN		"\x1B[0;32m"
+#define TOSH_ANSI_CODE_CYAN			"\x1B[0;36m"
+#define TOSH_ANSI_CODE_RED			"\x1B[0;31m"
+#define TOSH_ANSI_CODE_PURPLE		"\x1B[0;35m"
+#define TOSH_ANSI_CODE_BROWN		"\x1B[0;33m"
+#define TOSH_ANSI_CODE_LIGHT_GRAY	"\x1B[0;37m"
+
+#define TOSH_ANSI_CODE_DARK_GRAY	"\x1B[1;30m"
+#define TOSH_ANSI_CODE_LIGHT_BLUE	"\x1B[1;34m"
+#define TOSH_ANSI_CODE_LIGHT_GREEN	"\x1B[1;32m"
+#define TOSH_ANSI_CODE_LIGHT_CYAN	"\x1B[1;36m"
+#define TOSH_ANSI_CODE_LIGHT_RED	"\x1B[1;31m"
+#define TOSH_ANSI_CODE_LIGHT_PURPLE	"\x1B[1;35m"
+#define TOSH_ANSI_CODE_YELLOW		"\x1B[1;33m"
+#define TOSH_ANSI_CODE_WHITE		"\x1B[1;37m"
+
+#endif
