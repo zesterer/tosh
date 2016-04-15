@@ -94,17 +94,15 @@ int main(int argc, char* argv[])
 {
 	char line[MAX_LINE_LENGTH];
 
-	printf("Welcome to Thoth Shell\n");
+	printf("Welcome to Tosh!\n");
 
-	//char tmp[MAX_LINE];
-	//toshEval("ls {echo /home/joshua}", tmp, MAX_LINE);
+	setenv("PROMPT_SCRIPT", "echo -n \"{tput setaf 1}{echo -n $USERNAME}\x1B[0m@{tput setaf 2}{echo -n $PWD}\x1B[0m$ \"", 1);
 
-	while (1)
+	while (true)
 	{
-		char username[64];
-		char wd[MAX_LINE_LENGTH];
-		cuserid(username);
-		printf("\x1b[31m%s\x1b[0m@\x1b[32m%s\x1b[0m$ ", username, getcwd(wd, MAX_LINE_LENGTH));
+		char prompt[MAX_LINE_LENGTH];
+		toshEval(getenv("PROMPT_SCRIPT"), prompt, MAX_LINE);
+		printf("%s", prompt);
 
 		if (!fgets(line, MAX_LINE_LENGTH, stdin))
 			break;
