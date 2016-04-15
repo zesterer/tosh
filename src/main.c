@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
 
 	printf("Welcome to TOSH!\n");
 
-	setenv("PROMPT_SCRIPT", "echo -n \"{tput setaf 1}{echo -n $USERNAME}\x1B[0m@{tput setaf 2}{echo -n $PWD}\x1B[0m$ \"", 1);
+	setenv("PROMPT_SCRIPT", "echo -n \"{tput setaf 6}{date \"+%H:%M:%S\"}\x1B[0m{tput setaf 9}{echo -n $USERNAME}\x1B[0m@{tput setaf 2}{echo -n $PWD}\x1B[0m$ \"", 1);
 
 	while (true)
 	{
